@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Dice Roller</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dice Roller</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div class="container">
+    <h1>Dice Roller</h1>
+    <p class="subtitle">Kaç zar atmak istediğini seç ve şansını dene.</p>
 
-<h1>Dice Roller</h1>
+    <div class="buttons">
+      <button class="dice-btn active" onclick="setDice(1, this)">1 Zar</button>
+      <button class="dice-btn" onclick="setDice(2, this)">2 Zar</button>
+      <button class="dice-btn" onclick="setDice(3, this)">3 Zar</button>
+    </div>
 
-<div class="buttons">
-<button onclick="setDice(1)">1 Zar</button>
-<button onclick="setDice(2)">2 Zar</button>
-<button onclick="setDice(3)">3 Zar</button>
-</div>
+    <button class="roll-btn" id="rollButton" onclick="rollDice()">Zar At</button>
 
-<button class="roll" onclick="rollDice()">Zar At</button>
+    <p id="statusText" class="status-text"></p>
 
-<div id="result"></div>
+    <div id="diceContainer" class="dice-container"></div>
 
-<script src="script.js"></script>
+    <div id="totalBox" class="total-box hidden">
+      Toplam: <span id="totalValue">0</span>
+    </div>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
