@@ -7,17 +7,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  
   <div class="container">
     <h1>Dice Roller</h1>
     <p class="subtitle">Kaç zar atmak istediğini seç ve şansını dene.</p>
 
     <div class="buttons">
-      <button class="dice-btn active" onclick="setDice(1, this)">1 Zar</button>
-      <button class="dice-btn" onclick="setDice(2, this)">2 Zar</button>
-      <button class="dice-btn" onclick="setDice(3, this)">3 Zar</button>
-    </div>
+  <button class="dice-btn active" onclick="setDice(1, this)">1 Zar</button>
+  <button class="dice-btn" onclick="setDice(2, this)">2 Zar</button>
+  <button class="dice-btn" onclick="setDice(3, this)">3 Zar</button>
+</div>
 
-    <button class="roll-btn" id="rollButton" onclick="rollDice()">Zar At</button>
+<button id="soundToggle">🔊 Ses Açık</button>
+
+<button class="roll-btn" id="rollButton" onclick="rollDice()">Zar At</button>
+
 
     <p id="statusText" class="status-text"></p>
 

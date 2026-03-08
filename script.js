@@ -1,5 +1,8 @@
 let diceCount = 1;
 let isRolling = false;
+let soundEnabled = true;
+
+const diceSound = new Audio("dice-roll.mp3");
 
 function setDice(number, buttonElement) {
   if (isRolling) return;
@@ -12,6 +15,7 @@ function setDice(number, buttonElement) {
 }
 
 function rollDice() {
+
   if (isRolling) return;
 
   isRolling = true;
@@ -21,6 +25,12 @@ function rollDice() {
   const diceContainer = document.getElementById("diceContainer");
   const totalBox = document.getElementById("totalBox");
   const totalValue = document.getElementById("totalValue");
+
+  
+  if (soundEnabled) {
+    diceSound.currentTime =1;
+    diceSound.play();
+  }
 
   rollButton.disabled = true;
   rollButton.textContent = "Bekle...";
@@ -37,10 +47,12 @@ function rollDice() {
   }
 
   setTimeout(() => {
+
     let total = 0;
     diceContainer.innerHTML = "";
 
     for (let i = 0; i < diceCount; i++) {
+
       const roll = Math.floor(Math.random() * 6) + 1;
       total += roll;
 
@@ -48,6 +60,7 @@ function rollDice() {
       diceBox.className = "dice-box";
       diceBox.textContent = roll;
       diceContainer.appendChild(diceBox);
+
     }
 
     totalValue.textContent = total;
@@ -60,5 +73,19 @@ function rollDice() {
       statusText.textContent = "";
       isRolling = false;
     }, 800);
+
   }, 900);
 }
+const soundToggle = document.getElementById("soundToggle");
+
+soundToggle.addEventListener("click", () => {
+
+  soundEnabled = !soundEnabled;
+
+  if (soundEnabled) {
+    soundToggle.textContent = "🔊 Ses Açık";
+  } else {
+    soundToggle.textContent = "🔇 Ses Kapalı";
+  }
+
+});
